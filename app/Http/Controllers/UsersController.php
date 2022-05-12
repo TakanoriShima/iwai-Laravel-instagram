@@ -72,7 +72,7 @@ class UsersController extends Controller
     {
         //　タイムラインデータ取得
         $posts = \Auth::user()->feed_microposts()->orderBy('id', 'desc')->paginate(3);
-        
+
         // viewの呼び出し
         return view('users.timelines', compact('posts'));
     }

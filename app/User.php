@@ -181,7 +181,9 @@ class User extends Authenticatable
     {
         $follow_user_ids = $this->followings()->pluck('users.id')->toArray();
         $follow_user_ids[] = $this->id;
-        return Post::where('user_id', $follow_user_ids);
+        
+        // dd($follow_user_ids);
+        return Post::whereIn('user_id', $follow_user_ids);
     }
     
 }
